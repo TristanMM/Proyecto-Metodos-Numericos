@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  body {
+    display: flex;
+    height: 100vh;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  /* Menú lateral */
+  .sidebar {
+    width: 220px;
+    background-color: #2b3a55;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .sidebar button {
+    background: none;
+    border: none;
+    color: white;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.3s;
+  }
+  
+  .sidebar button:hover {
+    background-color: #3e4c6a;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  section {
+    display: none;
+  }
+  
+  section.active {
+    display: block;
+  }
+  
+  /*estilo del logo del HOME*/
+  #home img {
+    display: block;
+    margin: -10px auto 20px auto; /* margen arriba y centrado */
+    width: 150px;
+    height: 150px;
+    border-radius:45%; /* hace la imagen circular */
+    border: 4px solid #4a90e2; /* borde azul elegante */
+    object-fit: cover; /* recorta bien si no es cuadrada */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* sombra suave */
+  }
+
+  /*estilo de la informacion/datos del HOME*/
+  .info-box {
+    text-align: center;
+    margin-top: 30px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info-box h1 {
+    font-size: 20px;
+    color: #4a90e2;
+    margin-bottom: 5px;
+  }
+  
+  .info-box p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  /*estilo del pdf de la HISTORIA DEL METODO*/
+  .pdf-container {
+    width: 90%;
+    height: 92vh; /* 80% de la altura de la ventana */
+    margin: -10px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    overflow: auto;
+  }
+  
+.pdf-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+  
+  
+  
