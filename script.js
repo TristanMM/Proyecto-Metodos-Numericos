@@ -8,6 +8,7 @@ function showSection(id) {
 
   //Funcion que implementa la logica para realizar el metodo de Newton-Rhapson
   function resolverNewtonRaphson() {
+  const LIMITE_ITERACIONES = 10;
   const fStr = document.getElementById("funcion").value.trim();
   const x0Str = document.getElementById("x0").value;
   const iterMaxStr = document.getElementById("iteraciones").value;
@@ -65,23 +66,43 @@ function showSection(id) {
 
   pasos += `<div class="step">Función: f(x) = <code>${fStr}</code><br>Derivada de f(x): <code>${fPrimeStr}</code></div>`;
 
-  while ((iterValid && i < iterMax) || (errorValid && error > errorMin)) {
-    const fx = f.evaluate({ x });
-    const fpx = fPrime.evaluate({ x });
+while ((iterValid ? i < iterMax : i < LIMITE_ITERACIONES) &&(errorValid ? error > errorMin : true))
+ {
+  const fx = f.evaluate({ x });
+  const fpx = fPrime.evaluate({ x });
 
-    pasos += `<div class="step"><strong>Iteración ${i + 1}:</strong><br>
-              f(${x.toFixed(2)}) = ${fx.toFixed(2)}<br>
-              f'(${x.toFixed(2)}) = ${fpx.toFixed(2)}<br>`;
+  pasos += `<div class="step"><strong>Iteración ${i + 1}:</strong><br>
+            f(${x.toFixed(6)}) = ${fx.toFixed(6)}<br>
+            f'(${x.toFixed(6)}) = ${fpx.toFixed(6)}<br>`;
 
-    const x1 = x - (fx / fpx);
-    error = Math.abs((x1 - x) / x1) * 100;
-
-    pasos += `x₁ = ${x.toFixed(2)} - (${fx.toFixed(2)} / ${fpx.toFixed(2)}) = ${x1.toFixed(2)}<br>
-              Error = ${error.toFixed(2)}%</div>`;
-
-    x = x1;
-    i++;
+  // Verificar si la derivada es 0 o muy cercana
+  if (Math.abs(fpx) < 1e-8) {
+    pasos += `<span style="color:red;">❌ Derivada cercana o igual a cero. El método no puede continuar.</span></div>`;
+    procedimiento.innerHTML = pasos;
+    return;
   }
+
+  const x1 = x - (fx / fpx);
+  error = Math.abs((x1 - x) / x1) * 100;
+
+  pasos += `x₁ = ${x.toFixed(6)} - (${fx.toFixed(6)} / ${fpx.toFixed(6)}) = ${x1.toFixed(6)}<br>
+            Error = ${error.toFixed(6)}%</div>`;
+
+  // Validar si el nuevo valor es NaN o infinito
+  if (!isFinite(x1) || isNaN(x1)) {
+    pasos += `<span style="color:red;">❌ El método diverge (resultado no válido: NaN o infinito).</span></div>`;
+    procedimiento.innerHTML = pasos;
+    return;
+  }
+
+  x = x1;
+  i++;
+}
+
+// Validar si no se alcanzó el error deseado
+if (errorValid && error > errorMin) {
+  pasos += `<div class="step" style="color:red;">⚠️ El método no alcanzó el error deseado del ${errorMin}% tras ${i} iteraciones, por lo que muy seguramente no tiene solucion.</div>`;
+}
 
   procedimiento.innerHTML = pasos;
 }
