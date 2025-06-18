@@ -39,7 +39,7 @@ function resolverNewtonRaphson() {
     return;
   }
 
-  // Verificación de discriminante si es cuadrática
+  
   const match = fStr.replace(/\s+/g, '').match(/^([+-]?\d*\.?\d*)x\^2([+-]?\d*\.?\d*)x([+-]?\d*\.?\d*)$/i);
   if (match) {
     const a = parseFloat(match[1] || '1');
@@ -52,7 +52,6 @@ function resolverNewtonRaphson() {
     }
   }
 
-  // Verificación: ¿f(x) cambia de signo cerca de x₀?
   try {
     const fTemp = math.parse(fStr).compile();
     const puntos = [-1, -0.5, 0, 0.5, 1].map(d => x0 + d);
@@ -67,7 +66,6 @@ function resolverNewtonRaphson() {
     return;
   }
 
-  // Compilar funciones
   let f, fPrimeStr, fPrime;
   try {
     f = math.parse(fStr).compile();
@@ -86,7 +84,6 @@ function resolverNewtonRaphson() {
 
   pasos += `<div class="step">Función: f(x) = <code>${fStr}</code><br>Derivada: <code>${fPrimeStr}</code></div>`;
 
-  // Advertencias suaves
   const fx0 = f.evaluate({ x: x0 });
   const fpx0 = fPrime.evaluate({ x: x0 });
 
