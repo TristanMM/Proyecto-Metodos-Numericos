@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RaphSolver</title>
 
-<!-- Importacion de la clase con todo el estilo/diseño de la pagina -->
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Barra lateral de la pagina -->
+  
   <nav class="sidebar">
     <button onclick="showSection('home')">🏠 Inicio</button>
     <button onclick="showSection('metodo')">📐 Método de Newton-Raphson</button>
@@ -20,7 +20,7 @@
 
   <main class="content">
 
-    <!-- Apartado del Inicio(Home) de la pagina -->
+    
     <section id="home" class="active">
       <img src="imagenes/logo.png" alt="Logo de la pagina web" />
       <h1 class="main-title">RaphSolver</h1>
@@ -38,7 +38,6 @@
       </div>
     </section>
 
-    <!-- Apartado donde se realiza el metodo de Newton-Raphson -->
     <section id="metodo">
       <h2>Método de Newton-Raphson</h2>
       <label>Función f(x): <input id="funcion" type="text" placeholder="Ej: x ^ 3 + 10 * x - 2"></label><br>
@@ -50,14 +49,12 @@
       <div id="procedimiento"></div>
     </section>
 
-    <!-- Apartado donde se encuentra la informacion a la historia del metodo -->
     <section id="historia">
         <div class="pdf-container">        
             <iframe src="documentos/Historia del metodo Newton-Rhapson.pdf" width="100%" height="600px" style="border: none;"></iframe>
         </div>
     </section>
 
-    <!-- Apartado donde se encuantra el manual de usuario -->
     <section id="manual">
       <div class="pdf-container">        
         <iframe src="documentos/Manual de Usuario.pdf" width="100%" height="600px" style="border: none;"></iframe>
@@ -65,10 +62,8 @@
     </section>
   </main>
 
-  <!-- Importacion de la clase con toda la logica de la pagina -->
   <script src="script.js"></script>
 
-  <!-- Importacion de la biblioteca Math para poder derivar, evaluar funciones y realizar operaciones -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
 </main>
 </body>
