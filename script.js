@@ -52,19 +52,7 @@ function resolverNewtonRaphson() {
     }
   }
 
-  try {
-    const fTemp = math.parse(fStr).compile();
-    const puntos = [-1, -0.5, 0, 0.5, 1].map(d => x0 + d);
-    const signos = puntos.map(p => Math.sign(fTemp.evaluate({ x: p })));
-    const cambiaSigno = signos.some((s, i) => i > 0 && s !== signos[i - 1] && s !== 0);
-    if (!cambiaSigno) {
-      procedimiento.innerHTML = `<div class="step" style="color:red;">❌ La función no cambia de signo cerca de x₀. Es probable que <strong>no converja</strong>.</div>`;
-      return;
-    }
-  } catch (err) {
-    procedimiento.innerHTML = `<div class="step" style="color:red;">❌ Error al evaluar puntos cercanos a x₀.</div>`;
-    return;
-  }
+  
 
   let f, fPrimeStr, fPrime;
   try {
