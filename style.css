@@ -57,19 +57,18 @@
     display: block;
   }
   
-  /*estilo del logo del HOME*/
+  
   #home img {
     display: block;
-    margin: -10px auto 20px auto; /* margen arriba y centrado */
+    margin: -10px auto 20px auto;
     width: 150px;
     height: 150px;
-    border-radius:45%; /* hace la imagen circular */
-    border: 4px solid #4a90e2; /* borde azul elegante */
-    object-fit: cover; /* recorta bien si no es cuadrada */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* sombra suave */
+    border-radius:45%;
+    border: 4px solid #4a90e2;
+    object-fit: cover; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
   }
 
-  /* Estilo para el nombre de la pagina */
 .main-title {
   font-family: 'Segoe UI', sans-serif;
   font-size: 3em;
@@ -81,7 +80,6 @@
 
 }
 
-  /*estilo de la informacion/datos del HOME*/
   .info-box {
     text-align: center;
     margin-top: 30px;
@@ -106,10 +104,9 @@
     margin-bottom: 20px;
   }
 
-  /*estilo del pdf de la HISTORIA DEL METODO y el MANUAL DE USUARIO*/
   .pdf-container {
     width: 90%;
-    height: 92vh; /* 80% de la altura de la ventana */
+    height: 92vh; 
     margin: -10px auto;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -123,7 +120,6 @@
   display: block;
 }
 
-/*Estilo del apartado del metodo de Newton-Rhapson*/
 #metodo {
   max-width: 600px;
   background-color: #fff;
